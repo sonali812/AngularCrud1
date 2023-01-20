@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-3">
+            <h3 class="mt-4 mb-4">Registration Form</h3>
+            <form [formGroup] = "register" (ngSubmit)="onSubmit()"> 
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" formControlName="email" class="form-control" [(ngModel)] = "user.email" id= "email" placeholder="Enter email Name">
+                <div *ngIf="email.invalid && (email.dirty|| email.touched)"
+                             class="alert alert-danger mt-1">
+                            
+                         <div *ngIf="email.errors.required || email.errors.noWhiteSpaces">
+                               Email is required
+                         </div>
+        
+                     <div *ngIf="email.errors.minlength">
+                              Email at least 8 character long 
+                      </div>
+                      <div *ngIf="email.errors.pattern">
+                        Email is not valid and try another
+                      </div>
+                      <div *ngIf="email.errors.maxlength">
+                            Email at least 30 character long 
+                      </div>
+                          </div>
+                      
+</div><br>
+              
+          
+                 <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstname" formControlName="firstName" class="form-control" [(ngModel)] = "user.firstname" id= "firstname" placeholder="Enter First Name">
+                    <div *ngIf="firstName.invalid && (firstName.dirty|| firstName.touched)"
+                             class="alert alert-danger mt-1">
+                            
+                         <div *ngIf="firstName.errors.required || firstName.errors.noWhiteSpaces">
+                               First Name is required
+                         </div>
+        
+                     <div *ngIf="firstName.errors.minlength">
+                            First Name at least 2 character long 
+                      </div>
+                      <div *ngIf="firstName.errors.pattern">
+                        Only character are allow
+                      </div>
+                      <div *ngIf="firstName.errors.maxlength">
+                        First Name at least 12 character long 
+                  </div>
+                          </div>
+                      
+</div><br>
+                  
+                   <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastname" formControlName="lastName" class="form-control" [(ngModel)] = "user.lastname" id= "lastname" placeholder="Enter Last Name">
+                    
+                    <div *ngIf="lastName.invalid && (lastName.dirty|| lastName.touched)"
+                    class="alert alert-danger mt-1">
+                   
+                <div *ngIf="lastName.errors.required || lastName.errors.noWhiteSpaces">
+                      Last Name is required
+                </div>
+
+            <div *ngIf="lastName.errors.minlength">
+                   Last Name at least 2 character long 
+             </div>
+             <div *ngIf="lastName.errors.pattern">
+              Only character are allow
+            </div>
+             <div *ngIf="lastName.errors.maxlength">
+               Last Name at least 12 character long 
+         </div>
+                 </div>
+             
+</div><br>
+                   <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="text" name="age" formControlName="age" class="form-control" [(ngModel)] = "user.age" id= "age" placeholder="Enter Age">
+                    <div *ngIf="age.invalid && (age.dirty|| age.touched)"
+                    class="alert alert-danger mt-1">
+                   
+                <div *ngIf="age.errors.required || age.errors.noWhiteSpaces">
+                      age is required
+                </div>
+
+             <div *ngIf="age.errors.maxlength">
+                age at least 3 digit 
+         </div>
+                 </div>
+                  </div><br>
+                  <div class="form-group">
+                    <button id="submit-btn" [disabled]="!register.valid" class="btn btn-success" name="submit" value="Submit">Submit</button>
+                  </div> 
+              </form>
+        </div>
+    </div>
+
